@@ -7,11 +7,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex min-h-screen bg-white overflow-x-hidden">
-            <Sidebar />
-            <div className="flex-1 flex flex-col">
-                <Navbar />
-                <main className="flex-1 p-8">
+        <div className="min-h-screen bg-gray-50/50">
+            <div className="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 overflow-y-auto">
+                <Sidebar />
+            </div>
+            <div className="ml-64 flex flex-col">
+                <header className="sticky top-0 z-10">
+                    <Navbar />
+                </header>
+                <main className="flex-1 p-8 overflow-y-auto">
                     {children}
                 </main>
             </div>
