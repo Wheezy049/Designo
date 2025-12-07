@@ -187,11 +187,11 @@ function Page() {
                 <h1 className='text-xl font-bold'>Hello Josh 👋</h1>
                 <p className='text-base font-medium text-gray-400'>Let&#39;s learn something new today!</p>
             </div>
-            <div className='flex justify-between gap-4 items-stretch mb-10'>
+            <div className='grid grid-cols-1 xl:grid-cols-3 gap-6 mb-10'>
                 {/* enrolled course card */}
-                <Card className='flex flex-col w-[270px]'>
+                <Card className='flex flex-col xl:col-span-1'>
                     <CardHeader>
-                        <CardTitle className='text-xl font-bold'>Recent enrolled courses</CardTitle>
+                        <CardTitle className='text-lg font-bold'>Recent enrolled courses</CardTitle>
                     </CardHeader>
                     <CardContent className='flex-grow'>
                         <div className='bg-white border-2 border-gray-200 rounded-[8px] p-6'>
@@ -209,9 +209,9 @@ function Page() {
                     </CardContent>
                 </Card>
                 {/* resource card */}
-                <Card className='flex flex-1 flex-col'>
+                <Card className='flex flex-1 flex-col xl:col-span-1'>
                     <CardHeader>
-                        <CardTitle className='text-xl font-bold'>Your Resources</CardTitle>
+                        <CardTitle className='text-lg font-bold'>Your Resources</CardTitle>
                     </CardHeader>
                     <CardContent className='flex-grow'>
 
@@ -222,7 +222,7 @@ function Page() {
                     mode="single"
                     selected={date}
                     onSelect={setDate}
-                    className="rounded-lg border [--cell-size:1.9rem] p-2"
+                    className="rounded-lg border [--cell-size:2.5rem] p-2 mx-auto"
                     classNames={{
                         day_button:
                             "data-[selected-single=true]:bg-orange-500 data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-orange-500 data-[selected-single=true]:hover:text-white",
@@ -232,11 +232,11 @@ function Page() {
                     }}
                 />
             </div>
-            <div className="flex justify-between gap-4 items-stretch mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
                 {/* hours spent card */}
-                <Card className="flex flex-col w-[450px]">
+                <Card className="flex flex-col lg:col-span-2 xl:col-span-1">
                     <CardHeader>
-                        <CardTitle className="text-xl font-bold">Hours Spent</CardTitle>
+                        <CardTitle className="text-lg font-bold">Hours Spent</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-grow">
                         <div className='bg-white border-2 border-gray-200 rounded-[8px] px-2 py-5'>
@@ -289,10 +289,10 @@ function Page() {
                 </Card>
 
                 {/* performance card */}
-                <Card className="flex flex-col w-">
+                <Card className="flex flex-col">
                     <CardHeader>
                         <div className="flex items-center justify-between">
-                            <CardTitle className="text-xl font-bold">Performance</CardTitle>
+                            <CardTitle className="text-lg font-bold">Performance</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent className="flex-grow flex flex-col">
@@ -314,7 +314,7 @@ function Page() {
                 {/* To do List card */}
                 <Card className="flex flex-col">
                     <CardHeader>
-                        <CardTitle className="text-xl font-bold">To do List</CardTitle>
+                        <CardTitle className="text-lg font-bold">To do List</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-grow">
                         <div className="space-y-1">
@@ -342,12 +342,12 @@ function Page() {
                     </CardContent>
                 </Card>
             </div>
-            <div className="flex gap-6 items-stretch mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
                 {/* recent enrolled card */}
                 <Card className="flex-1">
                     <CardHeader>
                         <div className="flex items-center justify-between">
-                            <CardTitle className="text-xl font-bold">Recent enrolled classes</CardTitle>
+                            <CardTitle className="text-lg font-bold">Recent enrolled classes</CardTitle>
                             <div className="flex items-center gap-3">
                                 <button className="text-sm text-gray-600 hover:text-gray-900 font-medium">
                                     All
@@ -379,7 +379,7 @@ function Page() {
                 {/* Upcoming lesson card */}
                 <Card className="flex-1">
                     <CardHeader>
-                        <CardTitle className="text-xl font-bold">Upcoming Lesson</CardTitle>
+                        <CardTitle className="text-lg font-bold">Upcoming Lesson</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
                         <LessonItem

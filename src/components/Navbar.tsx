@@ -3,14 +3,25 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div className='flex justify-between items-center p-[23px] bg-white border-b-2 border-gray-200'>
-      <div className='flex items-center border border-orange-500 rounded-md p-2 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-orange-500 transition-shadow'>
-        <Search className='w-4 h-4 mr-2 text-orange-500' />
-        <input type='text' placeholder='Search' className='focus:outline-none bg-transparent w-full' />
-        <X className='w-4 h-4 ml-2 text-orange-500 cursor-pointer hover:text-orange-600 transition-colors' />
+    <div className='flex justify-between gap-4 items-center p-4 md:p-6 bg-white border-b-2 border-gray-200'>
+      {/* Left side: Search on medium screens and up, Logo on small screens */}
+      <div className="flex-1">
+        {/* Search Bar for Medium+ screens */}
+        <div className='hidden md:flex items-center border border-orange-500 rounded-md p-2 max-w-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-orange-500 transition-shadow'>
+          <Search className='w-4 h-4 mr-2 text-orange-500' />
+          <input type='text' placeholder='Search' className='focus:outline-none bg-transparent w-full' />
+          <X className='w-4 h-4 ml-2 text-orange-500 cursor-pointer hover:text-orange-600 transition-colors' />
+        </div>
+        {/* Mobile Logo */}
+        <div className='flex md:hidden items-center'>
+          <span className='w-10 h-10 bg-white border-8 border-orange-500 rounded-[8px]'></span>
+          <h1 className='ml-2 text-2xl font-medium uppercase'>Designo</h1>
+        </div>
       </div>
-      <div className='flex gap-3 items-center justify-center'>
-        <div className='p-2 border border-gray-200 rounded-[8px] relative'>
+
+      {/* Right side: User info and notifications */}
+      <div className='flex gap-4 items-center justify-center'>
+        <div className='p-2 border border-gray-200 rounded-lg relative cursor-pointer'>
           <Bell className='w-6 h-6' />
           <span className='w-2 h-2 bg-red-500 absolute top-2 right-2 rounded'></span>
         </div>
@@ -18,7 +29,7 @@ function Navbar() {
           <User2 className='w-6 h-6' />
         </div>
         <div className='flex gap-2 items-center text-black font-medium justify-center cursor-pointer'>
-          <h2 className='text-xl'>John</h2>
+          <h2 className='hidden lg:block text-lg'>John</h2>
           <ChevronDown className='w-6 h-6' />
         </div>
       </div>
