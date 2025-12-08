@@ -129,7 +129,7 @@ const ClassItem = ({
                     }`}>
                     {title}
                 </h3>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                     <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         <span>{duration}</span>
@@ -159,7 +159,8 @@ const LessonItem = ({
     icon: React.ElementType;
 }) => {
     return (
-        <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all">
+        <div className="flex items-center flex-wrap gap-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all">
+            <div className='flex flex-1 gap-4 items-center'>
             <div className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
                 <Icon className="w-6 h-6 text-gray-700" />
             </div>
@@ -168,7 +169,7 @@ const LessonItem = ({
                 <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
                 <p className="text-sm text-gray-600">{time}</p>
             </div>
-
+                </div>
             <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 rounded-full">
                 Join
             </Button>
@@ -217,20 +218,22 @@ function Page() {
 
                     </CardContent>
                 </Card>
-                {/* calender */}
-                <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-lg border [--cell-size:2.5rem] p-2 mx-auto"
-                    classNames={{
-                        day_button:
-                            "data-[selected-single=true]:bg-orange-500 data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-orange-500 data-[selected-single=true]:hover:text-white",
-                        caption_label: "text-orange-500 font-medium",
-                        head_cell: "text-gray-500",
-                        nav_button: "hover:bg-orange-100",
-                    }}
-                />
+                {/* calendar */}
+                <Card className="flex flex-col items-center justify-center p-0">
+                    <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        className="p-3"
+                        classNames={{
+                            day_button:
+                                "data-[selected-single=true]:bg-orange-500 data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-orange-500 data-[selected-single=true]:hover:text-white",
+                            caption_label: "text-orange-500 font-medium",
+                            head_cell: "text-gray-500",
+                            nav_button: "hover:bg-orange-100",
+                        }}
+                    />
+                </Card>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
                 {/* hours spent card */}
