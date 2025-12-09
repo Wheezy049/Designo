@@ -1,8 +1,18 @@
-import { Bell, ChevronDown, Search, User2, X } from 'lucide-react'
-import React from 'react'
+"use client"
+import { Bell, ChevronDown, Menu, Search, User2, X } from 'lucide-react'
+import React, { useState } from 'react'
+import MobileNav from './mobileNav';
 
 function Navbar() {
+
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  }
+
   return (
+    <>
     <div className='flex justify-between gap-4 items-center p-4 md:p-6 bg-white border-b-2 border-gray-200'>
       {/* Left side: Search on medium screens and up, Logo on small screens */}
       <div className="flex-1">
@@ -20,7 +30,7 @@ function Navbar() {
       </div>
 
       {/* Right side: User info and notifications */}
-      <div className='flex gap-4 items-center justify-center'>
+      <div className='flex gap-2 md:gap-4 items-center justify-center'>
         <div className='p-2 border border-gray-200 rounded-lg relative cursor-pointer'>
           <Bell className='w-6 h-6' />
           <span className='w-2 h-2 bg-red-500 absolute top-2 right-2 rounded'></span>
@@ -28,12 +38,23 @@ function Navbar() {
         <div className='p-2 bg-gray-100 rounded-full'>
           <User2 className='w-6 h-6' />
         </div>
-        <div className='flex gap-2 items-center text-black font-medium justify-center cursor-pointer'>
-          <h2 className='hidden lg:block text-lg'>John</h2>
+        <div className='hidden md:flex gap-2 items-center text-black font-medium justify-center cursor-pointer'>
+          <h2 className='text-lg'>John</h2>
           <ChevronDown className='w-6 h-6' />
+        </div>
+        <div onClick={handleToggle} className='flex md:hidden gap-2 items-center text-black font-medium justify-center cursor-pointer'>
+          {
+            toggle ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />
+          }
         </div>
       </div>
     </div>
+    {
+      toggle && (
+        <MobileNav setToggle={setToggle} />
+      )
+    }
+    </>
   )
 }
 

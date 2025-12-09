@@ -9,7 +9,7 @@ function Page() {
     title: "Conducting User Research",
     course: "User Research",
     dueDate: "July 1, 2024",
-    status: "done",
+    status: "Done",
   },
   {
     title: "Conducting User Research",
@@ -97,9 +97,8 @@ function Page() {
   },
  ]
 
- const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(10)
-
+ const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const totalPages = Math.ceil(data.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
@@ -151,9 +150,11 @@ function Page() {
     return pages
   }
 
+
+
   return (
     <div>
-       <div className='flex justify-between items-center mb-10'>
+       <div className='flex flex-wrap gap-3 justify-between items-center mb-10'>
         <div>
           <h1 className='text-base md:text-xl font-bold'>Assignment</h1>
           <p className='text-sm text-gray-400'>View and manage your course assignments</p>
@@ -203,7 +204,7 @@ function Page() {
         </div>
 
         {/* Pagination */}
-        <div className='flex items-center justify-between px-6 py-4 border-t'>
+        <div className='flex flex-wrap gap-3 items-center justify-between px-6 py-4 border-t'>
           <div className='flex items-center gap-2'>
             <span className='text-sm text-gray-600'>Show</span>
             <select
@@ -215,8 +216,8 @@ function Page() {
               className='border rounded px-2 py-1 text-sm'
             >
               <option value={10}>10</option>
+              <option value={15}>15</option>
               <option value={20}>20</option>
-              <option value={50}>50</option>
             </select>
             <span className='text-sm text-gray-600'>Row</span>
           </div>
